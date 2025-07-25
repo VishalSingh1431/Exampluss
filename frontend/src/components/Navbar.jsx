@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,60 +14,53 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Exams', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Home', path: '/' },
+    { name: 'Exams', path: '/exams' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  // Logo component - replace with your actual logo import
   const Logo = () => (
-    <a href="#" className="flex items-center">
+    <Link to="/" className="flex items-center">
       <img 
-        src="/images/logo (1).png" // Replace with your logo path
-        alt="ExamPluss Logo"
-        className="h-12 w-auto" // Increased from h-10 to h-12
+        src="/images/logo.png" 
+        alt="ExamPlus Logo"
+        className="h-12 w-auto"
       />
-    </a>
+    </Link>
   );
 
   return (
-    <header
-      className={`w-full transition-all duration-300 z-50 ${
-        isSticky ? 'sticky top-0 shadow-md bg-white' : 'bg-white'
-      }`}
-    >
-      <div className="container mx-auto px-4 py-4"> {/* Increased py-3 to py-4 */}
+    <header className={`w-full transition-all duration-300 z-50 ${
+      isSticky ? 'sticky top-0 shadow-md bg-white' : 'bg-white'
+    }`}>
+      <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
           <Logo />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10"> {/* Increased space-x-8 to space-x-10 */}
+          <nav className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-lg text-gray-700 hover:text-blue-600 font-medium transition-colors" // Added text-lg
+                to={link.path}
+                className="text-lg text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
-          {/* Search Bar - Desktop */}
           <div className="hidden md:flex items-center">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search..."
-                className="py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg" // Increased padding and added text-lg
-                style={{ fontSize: '1.1rem' }} // Slightly larger font
+                className="py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
               />
               <button className="absolute right-4 top-2.5 text-gray-500 hover:text-blue-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6" // Increased from h-5 w-5
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -82,7 +76,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -90,7 +83,7 @@ const Navbar = () => {
               aria-label="Toggle menu"
             >
               <svg
-                className="w-8 h-8" // Increased from w-6 h-6
+                className="w-8 h-8"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -116,33 +109,31 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden mt-5 pb-5"> {/* Increased mt-4 pb-4 to mt-5 pb-5 */}
-            <div className="flex flex-col space-y-4"> {/* Increased space-y-3 to space-y-4 */}
+          <div className="md:hidden mt-5 pb-5">
+            <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="block px-5 py-3 text-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors" // Increased padding and added text-lg
+                  to={link.path}
+                  className="block px-5 py-3 text-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
-            <div className="mt-5 px-5"> {/* Increased mt-4 px-4 to mt-5 px-5 */}
+            <div className="mt-5 px-5">
               <div className="relative">
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="w-full py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg" // Increased padding and added text-lg
-                  style={{ fontSize: '1.1rem' }} // Slightly larger font
+                  className="w-full py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
                 />
                 <button className="absolute right-4 top-2.5 text-gray-500 hover:text-blue-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6" // Increased from h-5 w-5
+                    className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
