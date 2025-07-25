@@ -221,23 +221,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-blue-800 text-white">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Preparation?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Join 150,000+ students who improved their ranks using ExamPluss
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-white text-blue-800 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition duration-300 shadow-md">
-              Get Started - It's Free
-            </button>
-            <button className="bg-transparent border-2 border-white hover:bg-blue-700 font-bold py-3 px-8 rounded-lg transition duration-300">
-              See Demo
-            </button>
-          </div>
-        </div>
-      </section>
+    
     </div>
   );
 };
