@@ -4,12 +4,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-blue-700 text-white pt-12 pb-8 px-4">
+    <footer className="bg-[#008080] text-white pt-12 pb-8 px-4">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row gap-8 mb-8">
           {/* Logo and description - takes more space */}
           <div className="md:w-2/5">
-            <h2 className="text-2xl font-bold text-blue-400 mb-4">ExamPluss</h2>
+            <h2 className="text-2xl font-bold text-[#008080]/80 mb-4">ExamPluss</h2>
             <p className="text-gray-300 mb-4">
               Your premier destination for competitive exam preparation resources.
             </p>
@@ -18,7 +18,7 @@ const Footer = () => {
                 <a 
                   key={social} 
                   href="#" 
-                  className="text-gray-300 hover:text-blue-400 transition"
+                  className="text-gray-300 hover:text-[#008080]/80 transition"
                   aria-label={social}
                 >
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -42,11 +42,11 @@ const Footer = () => {
 
           {/* Quick Links - equal width */}
           <div className="md:w-1/5">
-            <h3 className="text-lg font-semibold mb-4 text-blue-400">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#008080]/80">Quick Links</h3>
             <ul className="space-y-2">
               {['Home', 'Exams', 'About Us', 'Contact', 'FAQs'].map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition">
+                  <a href="#" className="text-gray-300 hover:text-[#008080]/80 transition">
                     {link}
                   </a>
                 </li>
@@ -56,11 +56,11 @@ const Footer = () => {
 
           {/* Exam Categories - equal width */}
           <div className="md:w-1/5">
-            <h3 className="text-lg font-semibold mb-4 text-blue-400">Exams</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#008080]/80">Exams</h3>
             <ul className="space-y-2">
               {['JEE Main', 'NEET', 'UPSC', 'BPSC', 'GATE'].map((exam) => (
                 <li key={exam}>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition">
+                  <a href="#" className="text-gray-300 hover:text-[#008080]/80 transition">
                     {exam}
                   </a>
                 </li>
@@ -70,22 +70,22 @@ const Footer = () => {
 
           {/* Contact Info - equal width */}
           <div className="md:w-1/5">
-            <h3 className="text-lg font-semibold mb-4 text-blue-400">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#008080]/80">Contact Us</h3>
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-start">
-                <svg className="h-5 w-5 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 mr-2 text-[#008080]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span>contact@exampluss.com</span>
               </li>
               <li className="flex items-start">
-                <svg className="h-5 w-5 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 mr-2 text-[#008080]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <span>+91 98765 43210</span>
               </li>
               <li className="flex items-start">
-                <svg className="h-5 w-5 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 mr-2 text-[#008080]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -96,7 +96,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright and bottom links */}
-        <div className="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-[#008080]/30 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
             © {currentYear} ExamPluss. All rights reserved.
           </p>
@@ -105,7 +105,7 @@ const Footer = () => {
               <a 
                 key={item} 
                 href="#" 
-                className="text-gray-400 hover:text-blue-400 transition text-sm"
+                className="text-gray-400 hover:text-[#008080]/80 transition text-sm"
               >
                 {item}
               </a>

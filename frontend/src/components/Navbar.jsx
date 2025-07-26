@@ -43,7 +43,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-lg text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-lg text-gray-700 hover:text-[#008080] font-medium transition-colors"
               >
                 {link.name}
               </Link>
@@ -55,9 +55,9 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+                className="py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#008080] focus:border-transparent text-lg"
               />
-              <button className="absolute right-4 top-2.5 text-gray-500 hover:text-blue-600">
+              <button className="absolute right-4 top-2.5 text-gray-500 hover:text-[#008080]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -79,7 +79,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="text-gray-700 hover:text-[#008080] focus:outline-none"
               aria-label="Toggle menu"
             >
               <svg
@@ -116,7 +116,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="block px-5 py-3 text-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors"
+                  className="block px-5 py-3 text-lg text-gray-700 hover:bg-[#008080]/10 hover:text-[#008080] rounded-md transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -128,9 +128,9 @@ const Navbar = () => {
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="w-full py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+                  className="w-full py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#008080] focus:border-transparent text-lg"
                 />
-                <button className="absolute right-4 top-2.5 text-gray-500 hover:text-blue-600">
+                <button className="absolute right-4 top-2.5 text-gray-500 hover:text-[#008080]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"

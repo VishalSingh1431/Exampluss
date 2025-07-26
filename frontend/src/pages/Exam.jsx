@@ -131,9 +131,9 @@ const Exam = () => {
     navigate(`/exams/${examId}`);
   };
 
-  return (
+return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8">Browse Exams</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-[#008080] mb-6 sm:mb-8">Browse Exams</h1>
       
       {/* Responsive Tabs Navigation */}
       <div className="border-b border-gray-200 mb-6 overflow-x-auto">
@@ -144,7 +144,7 @@ const Exam = () => {
               onClick={() => setActiveTab(category)}
               className={`whitespace-nowrap py-3 sm:py-4 px-1 font-medium text-xs sm:text-sm border-b-2 transition-colors duration-300 ${
                 activeTab === category
-                  ? 'border-blue-600 text-blue-600'
+                  ? 'border-[#008080] text-[#008080]'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
             >
@@ -163,10 +163,10 @@ const Exam = () => {
             className="bg-white rounded-lg shadow-sm sm:shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-gray-100"
           >
             <div className="p-4 sm:p-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-1 sm:mb-2 line-clamp-2">{exam.name}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-[#008080] mb-1 sm:mb-2 line-clamp-2">{exam.name}</h3>
               <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-2">{exam.description}</p>
               <div className="flex justify-between items-center">
-                <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-blue-50 text-blue-700">
+                <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-[#008080]/10 text-[#008080]">
                   View Papers
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
@@ -184,7 +184,7 @@ const Exam = () => {
           <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-10 w-10 sm:h-12 sm:w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <h3 className="mt-2 text-base sm:text-lg font-medium text-gray-900">No exams found</h3>
+          <h3 className="mt-2 text-base sm:text-lg font-medium text-[#008080]">No exams found</h3>
           <p className="mt-1 text-sm sm:text-base text-gray-500">We couldn't find any exams in this category.</p>
         </div>
       )}

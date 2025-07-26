@@ -13,7 +13,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 md:text-4xl">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#008080] md:text-4xl">
             Contact Us
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-600 md:text-xl">
@@ -25,7 +25,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
           {/* Contact Form - Left Column */}
           <div className="bg-white p-5 sm:p-6 md:p-8 rounded-lg shadow-md md:shadow-lg">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Send us a message</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#008080] mb-4 md:mb-6">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm sm:text-base font-medium text-gray-700">
@@ -36,7 +36,7 @@ const Contact = () => {
                   id="name"
                   name="name"
                   required
-                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#008080] focus:border-[#008080] text-sm sm:text-base"
                 />
               </div>
 
@@ -49,7 +49,7 @@ const Contact = () => {
                   id="email"
                   name="email"
                   required
-                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#008080] focus:border-[#008080] text-sm sm:text-base"
                 />
               </div>
 
@@ -61,7 +61,7 @@ const Contact = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#008080] focus:border-[#008080] text-sm sm:text-base"
                 />
               </div>
 
@@ -74,14 +74,14 @@ const Contact = () => {
                   name="message"
                   rows="4"
                   required
-                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                  className="mt-1 block w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#008080] focus:border-[#008080] text-sm sm:text-base"
                 ></textarea>
               </div>
 
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 sm:py-3 sm:px-6 border border-transparent rounded-md shadow-sm text-sm sm:text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                  className="w-full flex justify-center py-2 px-4 sm:py-3 sm:px-6 border border-transparent rounded-md shadow-sm text-sm sm:text-base font-medium text-white bg-[#008080] hover:bg-[#006666] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#008080] transition-colors"
                 >
                   Send Message
                 </button>
@@ -93,11 +93,11 @@ const Contact = () => {
           <div className="space-y-4 sm:space-y-6 md:space-y-8">
             {/* Contact Information Card */}
             <div className="bg-white p-5 sm:p-6 md:p-8 rounded-lg shadow-md md:shadow-lg">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Contact Information</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#008080] mb-4 md:mb-6">Contact Information</h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start">
-                  <FaMapMarkerAlt className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
+                  <FaMapMarkerAlt className="h-5 w-5 sm:h-6 sm:w-6 text-[#008080] mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
                   <div>
                     <h4 className="text-base sm:text-lg font-medium text-gray-900">Our Address</h4>
                     <p className="text-sm sm:text-base text-gray-600">123 Education Street, Knowledge City</p>
@@ -106,7 +106,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <FaPhone className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
+                  <FaPhone className="h-5 w-5 sm:h-6 sm:w-6 text-[#008080] mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
                   <div>
                     <h4 className="text-base sm:text-lg font-medium text-gray-900">Phone Number</h4>
                     <p className="text-sm sm:text-base text-gray-600">+91 98765 43210</p>
@@ -115,7 +115,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <FaEnvelope className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
+                  <FaEnvelope className="h-5 w-5 sm:h-6 sm:w-6 text-[#008080] mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
                   <div>
                     <h4 className="text-base sm:text-lg font-medium text-gray-900">Email Address</h4>
                     <p className="text-sm sm:text-base text-gray-600">contact@examplus.com</p>
@@ -124,7 +124,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <FaClock className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
+                  <FaClock className="h-5 w-5 sm:h-6 sm:w-6 text-[#008080] mt-0.5 sm:mt-1 mr-3 sm:mr-4" />
                   <div>
                     <h4 className="text-base sm:text-lg font-medium text-gray-900">Working Hours</h4>
                     <p className="text-sm sm:text-base text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
@@ -136,15 +136,15 @@ const Contact = () => {
 
             {/* Social Media Card */}
             <div className="bg-white p-4 sm:p-5 md:p-6 rounded-lg shadow-md md:shadow-lg">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Follow Us</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-[#008080] mb-3 sm:mb-4">Follow Us</h3>
               <div className="flex space-x-3 sm:space-x-4">
-                <a href="#" className="text-blue-600 hover:text-blue-800 transition-colors">
+                <a href="#" className="text-[#008080] hover:text-[#006666] transition-colors">
                   <FaLinkedin className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                 </a>
-                <a href="#" className="text-blue-400 hover:text-blue-600 transition-colors">
+                <a href="#" className="text-[#008080] hover:text-[#006666] transition-colors">
                   <FaTwitter className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                 </a>
-                <a href="#" className="text-pink-600 hover:text-pink-800 transition-colors">
+                <a href="#" className="text-[#008080] hover:text-[#006666] transition-colors">
                   <FaInstagram className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
                 </a>
               </div>
