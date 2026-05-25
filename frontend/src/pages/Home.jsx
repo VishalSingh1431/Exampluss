@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
 
   // Featured exams data
   const featuredExams = [
@@ -32,6 +34,14 @@ const Home = () => {
       setSuggestions(filtered);
     } else {
       setSuggestions([]);
+    }
+  };
+
+  const executeSearch = (query) => {
+    if (query.trim()) {
+      navigate(`/exams?search=${encodeURIComponent(query.trim())}`);
+    } else {
+      navigate('/exams');
     }
   };
 
@@ -80,8 +90,17 @@ const Home = () => {
                 className="w-full py-4 px-6 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#008080] focus:border-transparent shadow-sm text-lg"
                 value={searchQuery}
                 onChange={handleSearch}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    executeSearch(searchQuery);
+                    setSuggestions([]);
+                  }
+                }}
               />
-              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-[#008080] text-white p-2 rounded-full hover:bg-[#006666] transition duration-300">
+              <button 
+                onClick={() => executeSearch(searchQuery)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-[#008080] text-white p-2 rounded-full hover:bg-[#006666] transition duration-300"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -98,6 +117,7 @@ const Home = () => {
                     onClick={() => {
                       setSearchQuery(exam);
                       setSuggestions([]);
+                      executeSearch(exam);
                     }}
                   >
                     {exam}

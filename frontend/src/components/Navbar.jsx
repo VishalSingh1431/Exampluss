@@ -1,9 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const executeSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/exams?search=${encodeURIComponent(searchQuery.trim())}`);
+      setIsOpen(false); // Close mobile menu if open
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +42,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className={`w-full transition-all duration-300 z-50 ${
+    <header className={`w-full transition-colors duration-300 z-50 ${
       isSticky ? 'sticky top-0 shadow-md bg-white' : 'bg-white'
     }`}>
       <div className="container mx-auto px-4 py-4">
@@ -54,10 +65,15 @@ const Navbar = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search exams..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') executeSearch();
+                }}
                 className="py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#008080] focus:border-transparent text-lg"
               />
-              <button className="absolute right-4 top-2.5 text-gray-500 hover:text-[#008080]">
+              <button onClick={executeSearch} className="absolute right-4 top-2.5 text-gray-500 hover:text-[#008080]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -74,6 +90,22 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
+            
+            {user?.role === 'admin' && (
+              <Link to="/admin" className="ml-4 text-gray-500 hover:text-[#008080] font-medium transition duration-300">
+                Admin
+              </Link>
+            )}
+
+            {user ? (
+              <Link to="/profile" className="ml-4 flex items-center justify-center h-10 w-10 rounded-full bg-[#008080] text-white font-bold uppercase shadow-sm hover:shadow-md transition duration-300">
+                {user.email[0]}
+              </Link>
+            ) : (
+              <Link to="/login" className="ml-4 bg-[#008080] hover:bg-[#006666] text-white font-medium py-2.5 px-6 rounded-full transition duration-300">
+                Login
+              </Link>
+            )}
           </div>
 
           <div className="md:hidden flex items-center">
@@ -127,10 +159,15 @@ const Navbar = () => {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Search exams..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') executeSearch();
+                  }}
                   className="w-full py-2.5 px-5 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#008080] focus:border-transparent text-lg"
                 />
-                <button className="absolute right-4 top-2.5 text-gray-500 hover:text-[#008080]">
+                <button onClick={executeSearch} className="absolute right-4 top-2.5 text-gray-500 hover:text-[#008080]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -147,6 +184,22 @@ const Navbar = () => {
                   </svg>
                 </button>
               </div>
+            </div>
+            <div className="mt-4 px-5 space-y-3">
+              {user?.role === 'admin' && (
+                <Link to="/admin" className="block w-full text-center bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium py-2.5 px-6 rounded-full transition duration-300" onClick={() => setIsOpen(false)}>
+                  Admin Dashboard
+                </Link>
+              )}
+              {user ? (
+                <Link to="/profile" className="block w-full text-center bg-gray-100 hover:bg-gray-200 text-[#008080] font-medium py-2.5 px-6 rounded-full transition duration-300" onClick={() => setIsOpen(false)}>
+                  My Profile
+                </Link>
+              ) : (
+                <Link to="/login" className="block w-full text-center bg-[#008080] hover:bg-[#006666] text-white font-medium py-2.5 px-6 rounded-full transition duration-300" onClick={() => setIsOpen(false)}>
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         )}
