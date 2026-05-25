@@ -99,7 +99,7 @@ const Navbar = () => {
 
             {user ? (
               <Link to="/profile" className="ml-4 flex items-center justify-center h-10 w-10 rounded-full bg-[#008080] text-white font-bold uppercase shadow-sm hover:shadow-md transition duration-300">
-                {user.email[0]}
+                {user.email ? user.email[0] : 'U'}
               </Link>
             ) : (
               <Link to="/login" className="ml-4 bg-[#008080] hover:bg-[#006666] text-white font-medium py-2.5 px-6 rounded-full transition duration-300">

@@ -21,7 +21,7 @@ const AdminDashboard = () => {
 
   const fetchExams = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/exams');
+      const res = await axios.get('http://localhost:5005/api/exams');
       setExams(res.data);
       setLoading(false);
     } catch (error) {
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
   const handleCreateExam = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/admin/exams', newExam, {
+      await axios.post('http://localhost:5005/api/admin/exams', newExam, {
         headers: { Authorization: `Bearer ${token}` }
       });
       showMessage('Exam created successfully!');
@@ -56,7 +56,7 @@ const AdminDashboard = () => {
   const handleDeleteExam = async (examId) => {
     if (!window.confirm('Are you sure? This will also delete all question papers for this exam!')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/admin/exams/${examId}`, {
+      await axios.delete(`http://localhost:5005/api/admin/exams/${examId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       showMessage('Exam deleted successfully!');
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
 
     try {
       showMessage('Uploading paper... This might take a few seconds.', 'success');
-      await axios.post('http://localhost:5000/api/admin/papers', formData, {
+      await axios.post('http://localhost:5005/api/admin/papers', formData, {
         headers: { 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

@@ -13,7 +13,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       if (!token) return;
       try {
-        const res = await axios.get('http://localhost:5000/api/users/profile', {
+        const res = await axios.get('http://localhost:5005/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProfileData(res.data);

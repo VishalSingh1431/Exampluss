@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const prisma = require('../prismaClient');
 
 const protect = async (req, res, next) => {
   let token;
@@ -7,10 +7,18 @@ const protect = async (req, res, next) => {
     try {
       token = req.headers.authorization.split(' ')[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret_key');
-      req.user = await User.findById(decoded.userId).select('-otp -otpExpiry');
-      if (!req.user) {
+      
+      const user = await prisma.user.findUnique({ where: { id: decoded.userId } });
+      if (!user) {
         return res.status(401).json({ message: 'Not authorized, user not found' });
       }
+      
+      // Remove sensitive fields
+      const { otp, otpExpiry, ...safeUser } = user;
+      // Add _id for backwards compatibility
+      safeUser._id = safeUser.id;
+      
+      req.user = safeUser;
       next();
     } catch (error) {
       console.error(error);

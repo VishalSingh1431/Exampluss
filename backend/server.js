@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
@@ -25,14 +25,7 @@ app.get('/', (req, res) => {
   res.send('Exampluss API is running...');
 });
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/exampluss')
-.then(() => {
-  console.log('Connected to MongoDB');
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-})
-.catch(err => {
-  console.error('Error connecting to MongoDB:', err);
+// Start Server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
