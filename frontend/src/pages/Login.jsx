@@ -20,7 +20,7 @@ const Login = () => {
     setError('');
     setMessage('');
     try {
-      const res = await axios.post('http://localhost:5005/api/auth/send-otp', { email });
+      const res = await axios.post('/api/auth/send-otp', { email });
       setMessage(res.data.message);
       setStep(2);
     } catch (err) {
@@ -36,7 +36,7 @@ const Login = () => {
     setError('');
     setMessage('');
     try {
-      const res = await axios.post('http://localhost:5005/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('/api/auth/verify-otp', { email, otp });
       // Use Context login
       login(res.data.user, res.data.token);
       setMessage('Login successful!');

@@ -33,7 +33,7 @@ const Exam = () => {
   useEffect(() => {
     const fetchExams = async () => {
       try {
-        const response = await axios.get('http://localhost:5005/api/exams');
+        const response = await axios.get('/api/exams');
         setExamCategories(response.data);
         if (Object.keys(response.data).length > 0) {
           setActiveTab(Object.keys(response.data)[0]);

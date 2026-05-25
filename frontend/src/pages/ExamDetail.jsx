@@ -20,7 +20,7 @@ const ExamDetail = () => {
   useEffect(() => {
     const fetchExamDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:5005/api/exams/${id}`);
+        const res = await axios.get(`/api/exams/${id}`);
         setExam(res.data.exam);
         setPapers(res.data.papers);
         setLoading(false);
@@ -34,7 +34,7 @@ const ExamDetail = () => {
     const fetchUserData = async () => {
       if (!token) return;
       try {
-        const res = await axios.get('http://localhost:5005/api/users/profile', {
+        const res = await axios.get('/api/users/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         // Store just the IDs of bookmarked papers
@@ -59,7 +59,7 @@ const ExamDetail = () => {
     // Log History
     if (token) {
       try {
-        await axios.post('http://localhost:5005/api/users/history', { paperId: paper._id }, {
+        await axios.post('/api/users/history', { paperId: paper._id }, {
           headers: { Authorization: `Bearer ${token}` }
         });
       } catch (err) {
@@ -74,7 +74,7 @@ const ExamDetail = () => {
       return;
     }
     try {
-      const res = await axios.post('http://localhost:5005/api/users/bookmark', { paperId }, {
+      const res = await axios.post('/api/users/bookmark', { paperId }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBookmarkedIds(res.data.bookmarks);
